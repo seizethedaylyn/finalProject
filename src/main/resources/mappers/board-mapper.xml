@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Board">
+    <insert id="insertBoard">
+        insert into PLAYER (
+        playGroup, comment, name, teamName, playerImg, position,
+        snsId, height, weight, song
+        ) values (
+        #{playGroup}, #{comment}, #{name}, #{teamName}, #{playerImg}, #{position},
+        #{snsId}, #{height}, #{weight}, #{song}
+        )
+    </insert>
+    <update id="updateBoard">
+        update PLAYER
+        set playGroup=#{playGroup}, comment=#{comment}, name=#{name},
+        teamName=#{teamName}, playerImg=#{playerImg}, position=#{position},
+        snsId=#{snsId}, height=#{height}, weight=#{weight}, song=#{song}
+        where id=#{id}
+    </update>
+    <delete id="deleteBoard">
+        delete from PLAYER where id=#{id}
+    </delete>
+    <select id="getBoard" resultType="board">
+        select * from PLAYER where id=#{id}
+    </select>
+    <select id="getBoardList" resultType="board">
+        select * from PLAYER order by id asc
+    </select>
+</mapper>
