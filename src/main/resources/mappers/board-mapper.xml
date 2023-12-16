@@ -5,18 +5,18 @@
 <mapper namespace="Board">
     <insert id="insertBoard">
         insert into PLAYER (
-        playGroup, comment, name, teamName, playerImg, position,
-        snsId, height, weight, song
+        playGroup, name, birth, teamName, playerImg, position,
+        snsId, height, weight, song, awards, comment
         ) values (
-        #{playGroup}, #{comment}, #{name}, #{teamName}, #{playerImg}, #{position},
-        #{snsId}, #{height}, #{weight}, #{song}
+        #{playGroup}, #{name}, #{birth}, #{teamName}, #{playerImg}, #{position},
+        #{snsId}, #{height}, #{weight}, #{song}, #{awards}, #{comment}
         )
     </insert>
     <update id="updateBoard">
         update PLAYER
-        set playGroup=#{playGroup}, comment=#{comment}, name=#{name},
+        set playGroup=#{playGroup}, name=#{name}, birth=#{birth},
         teamName=#{teamName}, playerImg=#{playerImg}, position=#{position},
-        snsId=#{snsId}, height=#{height}, weight=#{weight}, song=#{song}
+        snsId=#{snsId}, height=#{height}, weight=#{weight}, song=#{song}, awards=#{awards}, comment=#{comment}
         where id=#{id}
     </update>
     <delete id="deleteBoard">

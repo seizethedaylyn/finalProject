@@ -9,33 +9,21 @@
     <title>Edit Player</title>
 </head>
 <body>
-
-<%--<%--%>
-<%--    PlayerDAO playerDAO = new PlayerDAO();--%>
-<%--    String playerId = request.getParameter("playerId");--%>
-<%--    PlayerVO u = null;--%>
-
-<%--    // playerId가 null이 아닌 경우에만 데이터를 가져오도록 수정--%>
-<%--    if (playerId != null && !playerId.isEmpty()) {--%>
-<%--        u = playerDAO.getPlayer(Integer.parseInt(playerId));--%>
-<%--    }--%>
-<%--%>--%>
-
 <h1>Edit Player</h1>
 <form>
-    <input type="hidden" name="playerId" value="${u.id}"/>
+    <input type="hidden" name="id" value="${u.id}"/>
     <table>
         <tr>
             <td>Play Group:</td>
             <td><input type="text" name="playGroup" value="${u.playGroup}" disabled/></td>
         </tr>
         <tr>
-            <td>Comment:</td>
-            <td><input type="text" name="comment" value="${u.comment}" disabled/></td>
-        </tr>
-        <tr>
             <td>Name:</td>
             <td><input type="text" name="name" value="${u.name}" disabled/></td>
+        </tr>
+        <tr>
+            <td>Birth:</td>
+            <td><input type="text" name="birth" value="${u.birth}"disabled/></td>
         </tr>
         <tr>
             <td>Team Name:</td>
@@ -66,21 +54,16 @@
             <td><input type="text" name="song" value="${u.song}" disabled/></td>
         </tr>
         <tr>
+            <td>Comment:</td>
+            <td><textarea name="comment" disabled>${u.comment}</textarea></td>
+        </tr>
+        <tr>
             <td colspan="2">
-                <input type="button" value="수정하기" onclick="editPlayer()"/>
                 <input type="button" value="홈으로" onclick="history.back()"/>
             </td>
         </tr>
     </table>
 </form>
-
-<script>
-    function editPlayer() {
-        // 수정하기 버튼 클릭 시 동작할 코드 추가
-        // 예: 폼을 서버로 제출하거나, 수정 가능하도록 input 태그의 disabled 속성을 해제하는 등의 동작
-        alert("수정 기능을 구현해주세요.");
-    }
-</script>
 
 </body>
 </html>

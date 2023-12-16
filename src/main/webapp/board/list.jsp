@@ -63,6 +63,24 @@
             justify-content: space-between;
             align-items: center;
         }
+
+        .player-container {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 23%; /* Adjusted width for four items in a row */
+            box-sizing: border-box;
+            float: left;
+            margin-right: 2%;
+        }
+
+        .player-container:hover {
+            background-color: #f9f9f9;
+        }
+
+        .player-container h2 {
+            margin-top: 0;
+        }
     </style>
     <script>
         function delete_ok(playerId) {
@@ -76,41 +94,23 @@
     <h1>Player List</h1>
     <button onclick="location.href='add'" id="button1">Add New Player</button>
 </div>
-<table id="list" width="90%">
-    <tr>
-        <th>PlayerId</th>
-        <th>Play Group</th>
-        <th>Comment</th>
-        <th>Name</th>
-        <th>Team Name</th>
-        <th>Player Image</th>
-        <th>Position</th>
-        <th>SNS ID</th>
-        <th>Height</th>
-        <th>Weight</th>
-        <th>Song</th>
-        <th>Details</th>
-        <th>Edit</th>
-        <th>Delete</th>
-    </tr>
-    <c:forEach items="${list}" var="u">
-        <tr>
-            <td>${u.getId()}</td>
-            <td>${u.getPlayGroup()}</td>
-            <td>${u.getComment()}</td>
-            <td>${u.getName()}</td>
-            <td>${u.getTeamName()}</td>
-            <td>${u.getPlayerImg()}</td>
-            <td>${u.getPosition()}</td>
-            <td>${u.getSnsId()}</td>
-            <td>${u.getHeight()}</td>
-            <td>${u.getWeight()}</td>
-            <td>${u.getSong()}</td>
-            <td><a href="view/${u.id}">⭐️</a></td>
-            <td><a href="editform/${u.id}">Edit</a></td>
-            <td><a href="javascript:delete_ok('${u.id}')">Delete</a></td>
-        </tr>
-    </c:forEach>
-</table>
+
+<c:forEach items="${list}" var="u" varStatus="status">
+    <div class="player-container">
+        <h2>${u.getName()}</h2>
+        <p><strong>Play Group:</strong> ${u.getPlayGroup()}</p>
+        <p><strong>Birth:</strong> ${u.getBirth()}</p>
+        <p><strong>Team Name:</strong> ${u.getTeamName()}</p>
+        <p><strong>Position:</strong> ${u.getPosition()}</p>
+
+        <!-- 상세보기, 수정, 삭제 링크 추가 -->
+        <p><a href="view/${u.id}">⭐️ Details</a></p>
+        <p><a href="editform/${u.id}">Edit</a></p>
+        <p><a href="javascript:delete_ok('${u.id}')">Delete</a></p>
+    </div>
+    <c:if test="${status.index % 4 == 3}">
+        <div style="clear:both;"></div>
+    </c:if>
+</c:forEach>
 </body>
 </html>

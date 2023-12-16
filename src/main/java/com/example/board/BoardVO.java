@@ -14,6 +14,8 @@ public class BoardVO {
     private int height;
     private int weight;
     private String song;
+    private String birth;
+    private String awards;
 
     public int getId() {
         return id;
@@ -101,5 +103,21 @@ public class BoardVO {
 
     public void setSong(String song) {
         this.song = song;
+    }
+
+    public String getBirth() {
+        return birth;
+    }
+
+    public void setBirth(String birth) {
+        this.birth = birth;
+    }
+
+    public String getAwards() {
+        return awards;
+    }
+
+    public void setAwards(String awards) {
+        this.awards = awards;
     }
 }

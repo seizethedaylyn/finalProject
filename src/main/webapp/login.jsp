@@ -20,7 +20,8 @@
 </head>
 <body>
 <div style='width:100%;text-align:center;padding-top:100px'>
-  <img src='../img/kbo.png' alt="왜 안뜨지" height="250">
+<%--  <img src="resources/img/welcome.jpg" alt="왜 안뜨지">--%>
+
   <form method="post" action="loginOk">
     <div>
       <label>User ID: </label>
